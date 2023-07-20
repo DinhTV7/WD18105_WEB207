@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <title>Học về route</title>
+</head>
+<body ng-app="myRoute">
+    <header>
+        <h1>Đây là header</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#!/trang-chu">Trang chủ</a></li>
+            <li><a href="">Giới thiệu</a></li>
+        </ul>
+    </nav>
+    <main>
+        <!-- Định nghĩa khu vực mà view sẽ được render ra -->
+        <div ng-view></div>
+    </main>
+    <footer>
+        <h1>Đây là footer</h1>
+    </footer>
+</body>
+<script src="controllers/TrangChuController.js"></script>
+<script>
+    var myRoute = angular.module('myRoute', ['ngRoute']);
+    // ngRoute: cung cấp các tính năng tuyến tính (routing) 
+    // để quản lý việc điều hướng
+
+    myRoute.config(function ($routeProvider) {
+        // config: cấu hình các tham số trước khi ứng dụng được chạy
+        // $routeProvider: phải để đúng tên vì nó đã được định nghĩa mặc định 
+        // sử dụng trong angular
+
+        $routeProvider
+        .when(
+            '/trang-chu', // Tên route
+            {
+                templateUrl: 'views/trangchu.html', // Đường dẫn đến view
+                controller: TrangChuController // Tên controller cần map tới view
+            }
+        )
+    }
+
+    );
+</script>
+</html>

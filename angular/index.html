@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Nhúng thư viện Angular -->
+    <script src="./libs/angular.min.js"></script>
+    <title>AngularJS</title>
+</head>
+<!-- Để khởi tạo chương trình đầu tiên chúng ta cần phải quy định
+    phạm vi sử dụng của AngularJS ( quy định bằng ng-app )
+-->
+<body ng-app="myApp">
+    <!-- Vùng sử dụng controller -->
+    <!-- <div ng-controller="demoController">
+        <h1>{{ test }}</h1>
+    </div>
+
+    <div ng-controller="thongtin">
+        <h1>{{ name }}</h1>
+        <h1>{{ class }}</h1>
+    </div> -->
+
+    <div ng-controller="infoController">
+        <h1>{{ xinchao }}</h1>
+        <p>{{ phones[0] }}</p>
+
+        <table border="1">
+            <tr>
+                <td>Tên</td>
+                <td>Năm sinh</td>
+                <td>Ngày chia tay</td>
+                <td>SĐT</td>
+            </tr>
+            <tr>
+                <td>{{ nyc[0].name }}</td>
+                <td>{{ nyc[0].since }}</td>
+                <td>{{ nyc[0].date }}</td>
+                <td>{{ nyc[0].phone }}</td>
+            </tr>
+            <tr>
+                <td>{{ nyc[1].name }}</td>
+                <td>{{ nyc[1].since }}</td>
+                <td>{{ nyc[1].date }}</td>
+                <td>{{ nyc[1].phone }}</td>
+            </tr>
+            <tr>
+                <td>{{ nyc[2].name }}</td>
+                <td>{{ nyc[2].since }}</td>
+                <td>{{ nyc[2].date }}</td>
+                <td>{{ nyc[2].phone }}</td>
+            </tr>
+        </table>
+        <!-- Cách 2 -->
+        <table border="1">
+            <tr>
+                <td>Tên</td>
+                <td>Năm sinh</td>
+                <td>Ngày chia tay</td>
+                <td>SĐT</td>
+                <td>Action</td>
+            </tr>
+            <tr ng-repeat="item in nyc">
+                <td>{{ item.name }}</td>
+                <td ng-mouseenter="nyc1(item.since)">{{ item.since }}</td>
+                <td>{{ item.date }}</td>
+                <!-- ng-bind gán giá trị của dữ liệu vào nội dung của phần tử HTML -->
+                <td ng-bind="item.phone"></td>
+                <td>
+                    <button ng-click="sayHello(item.name)">Xin chào</button>
+                </td>
+            </tr>
+        </table>
+
+        <!-- model thay đổi trực tiếp dữ liệu-->
+        <input type="text" ng-model="xinchao">
+
+        <input type="text" ng-model="nyc[0].name">
+
+        <!-- Một số sự kiện -->
+        <button ng-click="tenHam(1234)">Ấn vào em đi...!</button>
+
+        <a href="#" ng-mouseenter="dungdoi()">Đưa tay đây nào ....</a>
+        <br>
+
+        <h3>Thêm thông tin</h3>
+        <form ng-submit="themMoi()">
+            <label for="">Tên</label>
+            <input type="text" name="name" ng-model="name">
+            <label for="">Địa chỉ</label>
+            <input type="text" name="address" ng-model="address">
+            <button type="submit">Thêm mới</button>
+        </form>
+    </div>
+</body>
+<!-- Nhúng trực tiếp -->
+<!-- <script>
+    // Khởi tạo module
+    var myApp = angular.module('myApp', []); // 2 tham số: tên của ng-app, thành phần phụ thuộc
+
+    // Khởi tạo và đăng ký cho controler
+    // ten_ng-app.controller('tên của controller', tenHam)
+    myApp.controller('demoController', sayHello);
+
+    function sayHello($scope) { // $scope bắt buộc phải có để render dữ liệu ra view
+        // Khai báo biến
+        $scope.test = "Xin chào cục cưng";
+    }
+
+    // Tạo 1 vùng controller mới
+    // In ra họ tên, Lớp, chuyên ngành, họ tên nyc
+    myApp.controller('thongtin', thong_tin);
+
+    function thong_tin ($scope) {
+        $scope.name = "DinhTv7";
+        $scope.class = "WD18105";
+    }
+</script> -->
+<script src="./js/app.js"></script>
+</html>

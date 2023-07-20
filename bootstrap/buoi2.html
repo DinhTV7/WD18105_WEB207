@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Buổi học 2</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Thông báo -->
+        <!-- Thay đổi màu của thanh thông báo: alert-màu -->
+        <h1>Thông báo</h1>
+        <div class="alert alert-danger" role="alert">
+            Xóa thành công !
+        </div>
+        <div class="alert alert-warning" role="alert">
+            Thêm thành công !
+        </div>
+
+        <!-- Button -->
+        <!-- Loại 1: Có backgroub -->
+        <!-- Thay màu: btn-màu -->
+        <button type="button" class="btn btn-success">Thêm</button>
+        <button type="button" class="btn btn-warning">Sửa</button>
+        <button type="button" class="btn btn-danger">Xóa</button>
+
+        <!-- Loại 2: Không backgroub -->
+        <!-- btn-outline-màu -->
+        <button type="button" class="btn btn-outline-success">Thêm</button>
+        <button type="button" class="btn btn-outline-warning">Sửa</button>
+        <button type="button" class="btn btn-outline-danger">Xóa</button>
+
+        <!-- Loại 3: Button groub -->
+        <!-- Nằm ngang -->
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success">Thêm</button>
+            <button type="button" class="btn btn-warning">Sửa</button>
+            <button type="button" class="btn btn-danger">Xóa</button>
+        </div>
+        <!-- Nằm dọc -->
+        <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-success">Thêm</button>
+            <button type="button" class="btn btn-warning">Sửa</button>
+            <button type="button" class="btn btn-danger">Xóa</button>
+        </div>
+
+        <!-- Huy hiệu trong boostrap -->
+        <span class="badge bg-success">Đang hoạt động</span>
+        <span class="badge bg-danger">Tạm ngừng hoạt động</span>
+        <!-- bo tròn thì chỉ cần thêm class rounded-pill -->
+        <span class="badge rounded-pill bg-success">Đang hoạt động</span>
+
+        <!-- Hộp thoại -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Mở hộp thoại
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- hiệu chỉnh hộp thoại thì thêm class vào đây -->
+            <!-- modal-dialog-centered: Đưa hộp thoại ra chính giữa màn hình -->
+            <!-- modal-size: sm, lg, xl -->
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tiêu đề</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Chào mừng đến với bình nguyên vô tận
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <!-- Một số class tùy chỉnh table:
+            table: Class định dạng bảng của bootstrap
+            table-hover: highlight hàng có con trỏ chuột
+            table-bordered: Tạo đường kẻ
+            table-striped: highlight xen kẽ các hàng chẵn lẻ
+        -->
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Thornton</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Form -->
+        <form action="">
+            <input type="text">
+        </form>
+    </div>
+</body>
+
+</html>

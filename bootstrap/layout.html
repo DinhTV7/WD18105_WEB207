@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Reponsive trong Bootstrap</title>
+</head>
+<style>
+    .red {
+        background-color: red;
+    }
+
+    .green {
+        background-color: green;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <!-- Để sử dụng được thằng grid trong bootstrap
+            Bắt buộc nội dung phải chứa trong class row
+        -->
+        <!-- Row dùng để nhóm các thành phần thành 1 hàng -->
+        <div class="row mt-3">
+            <!-- Col để chia cột -->
+            <div class="col red">
+                Column 1
+            </div>
+            <div class="col green">
+                Column 2
+            </div>
+            <div class="col blue">
+                Column 3
+            </div>
+        </div>
+
+        <!-- Tùy chỉnh độ rộng các cột -->
+        <!-- Thêm hậu tố là các số từ 1 -> 12 -->
+        <div class="row mt-3">
+            <!-- Col để chia cột -->
+            <div class="col-2 red">
+                Column 1
+            </div>
+            <div class="col-4 green">
+                Column 2
+            </div>
+            <div class="col-6 blue">
+                Column 3
+            </div>
+            <!-- Chú ý: Trong 1 hàng thì tổng các hậu tố phải bằng 12 -->
+        </div>
+
+        <div class="row mt-3">
+            <!-- Col để chia cột -->
+            <div class="col-lg-3 col-sm-6 red">
+                Column 1
+            </div>
+            <div class="col-lg-3 col-sm-6 green">
+                Column 2
+            </div>
+            <div class="col-lg-3 col-sm-6 blue">
+                Column 3
+            </div>
+            <div class="col-lg-3 col-sm-6 red">
+                Column 4
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
