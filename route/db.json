@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "title": "Lớp WD18105",
+      "description": "Thầy Định Fpoly",
+      "author": "DinhTV7",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Thầy Định đẹp trai",
+      "description": "Thầy Định đẹp trai nhất Fpoly",
+      "author": "DinhTV7"
+    }
+  ],
+  "dinhtv7": [
+    {
+      "id": 1,
+      "name": "Tạ Văn Định",
+      "address": "Nam Định"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

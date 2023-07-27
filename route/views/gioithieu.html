@@ -1,4 +1,21 @@
 <div>
     <h1>{{ title }}</h1>
     <h1>ID là {{ id }}</h1>
+    {{listPosts}}
+    <!-- Đổ dữ liệu trong listPosts ra table -->
+    <h1>Danh sách bài viết</h1>
+    <table class="table table-hover">
+        <tr>
+            <td>Id</td>
+            <td>Tiêu đề</td>
+            <td>Nội dung</td>
+            <td>Tác giả</td>
+        </tr>
+        <tr ng-repeat="post in listPosts">
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.description }}</td>
+            <td>{{ post.author }}</td>
+        </tr>
+    </table>
 </div>
