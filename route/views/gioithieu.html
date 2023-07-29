@@ -1,7 +1,32 @@
 <div>
     <h1>{{ title }}</h1>
     <h1>ID là {{ id }}</h1>
-    {{listPosts}}
+    <!-- {{listPosts}} -->
+    <h1>Thêm bài viết mới</h1>
+    <table>
+        <tr>
+            <td>Tiêu đề</td>
+            <td>
+                <input type="text" ng-model="inputValue.title">
+                <p ng-if="kiemTraDuLieu.title == true" style="color: red;">Vui lòng nhập tiêu đề</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Nội dung</td>
+            <td>
+                <input type="text" ng-model="inputValue.description">
+                <p ng-if="kiemTraDuLieu.description == true" style="color: red;">Vui lòng nhập nội dung</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Tác giả</td>
+            <td>
+                <input type="text" ng-model="inputValue.author">
+                <p ng-if="kiemTraDuLieu.author == true" style="color: red;">Vui lòng nhập tác giả</p>
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-success" ng-click="onSubmitForm()">Thêm dữ liệu</button>
     <!-- Đổ dữ liệu trong listPosts ra table -->
     <h1>Danh sách bài viết</h1>
     <table class="table table-hover">
@@ -10,12 +35,16 @@
             <td>Tiêu đề</td>
             <td>Nội dung</td>
             <td>Tác giả</td>
+            <td>Thao tác</td>
         </tr>
         <tr ng-repeat="post in listPosts">
             <td>{{ post.id }}</td>
             <td>{{ post.title }}</td>
             <td>{{ post.description }}</td>
             <td>{{ post.author }}</td>
+            <td>
+                <button ng-click="editPost(post.id)" class="btn btn-warning">Sửa</button>
+            </td>
         </tr>
     </table>
 </div>

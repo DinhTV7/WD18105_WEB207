@@ -17,8 +17,8 @@ window.GioiThieuController = function ($scope, $routeParams, $http) {
         // Sử dụng $http đi call API
         $http.get(apiPosts).then(function (response) {
             // Kiểm tra dữ liệu
-            console.log(response);
-            console.log(response.data);
+            // console.log(response);
+            // console.log(response.data);
 
             if (response.status == 200) { // Kiểm tra xem có call API thành công hay không
                 $scope.listPosts = response.data;
@@ -28,4 +28,70 @@ window.GioiThieuController = function ($scope, $routeParams, $http) {
 
     // Gọi hàm
     $scope.getData();
+
+    // Kiểm tra dữ liệu đã điền hay chưa
+    $scope.kiemTraDuLieu = {
+        title: false,
+        description: false,
+        author: false,
+    }
+
+    // Tạo phương thức để cập nhật dữ liệu
+    $scope.onSubmitForm = function () {
+        // console.log($scope.inputValue);
+
+        // Đặt 1 biến để kiểm tra
+        let flag = true;
+
+        // Kiểm tra title có bỏ trống không
+        if (!$scope.inputValue || !$scope.inputValue.title) {
+            $scope.kiemTraDuLieu.title = true;
+            flag = false;
+        }
+        // Kiểm tra description có bỏ trống không
+        if (!$scope.inputValue || !$scope.inputValue.description) {
+            $scope.kiemTraDuLieu.description = true;
+            flag = false;
+        }
+        // Kiểm tra author có bỏ trống không
+        if (!$scope.inputValue || !$scope.inputValue.author) {
+            $scope.kiemTraDuLieu.author = true;
+            flag = false;
+        }
+
+        // Nếu như không có lỗi gì xảy ra thì flag mặc định vẫn là true
+        if (flag) {
+            // Xử lý thêm dữ liệu
+            // Lấy dữ liệu nhập vào từ ô input
+            let newPost = {
+                title: $scope.inputValue.title,
+                description: $scope.inputValue.description,
+                author: $scope.inputValue.author,
+            }
+
+            $http.post(
+                apiPosts,   // Đường dẫn link API
+                newPost     // Dữ liệu cần thêm
+            ).then(function (response) {
+                $scope.getData();
+            })
+        }
+    }
+
+    $scope.editPost = function (postId) {
+        
+        // Lấy thông tin chi tiết của bài viết
+        $http.get(`${apiPosts}/${postId}`)
+        .then(function (response) {
+            console.log(response.data);
+            if (response.status == 200) {
+                // Đưa dữ thông tin vào ô input
+                $scope.inputValue = {
+                    title: response.data.title,
+                    description: response.data.description,
+                    author: response.data.author
+                }
+            }
+        })
+    }
 }
