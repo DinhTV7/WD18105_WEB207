@@ -1,8 +1,8 @@
 {
   "posts": [
     {
-      "title": "Lớp WD18105",
-      "description": "Thầy Định Fpoly",
+      "title": "Lớp WD18105 test 2222",
+      "description": "Thầy Định Fpoly 2222",
       "author": "DinhTV7",
       "id": 1
     },
@@ -11,18 +11,6 @@
       "title": "Thầy Định đẹp trai",
       "description": "Thầy Định đẹp trai nhất Fpoly",
       "author": "DinhTV7"
-    },
-    {
-      "title": "DinhTV7",
-      "description": "abc",
-      "author": "DinhTV7",
-      "id": 3
-    },
-    {
-      "title": "123",
-      "description": "123",
-      "author": "123",
-      "id": 4
     }
   ],
   "dinhtv7": [

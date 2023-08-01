@@ -61,6 +61,27 @@ window.GioiThieuController = function ($scope, $routeParams, $http) {
 
         // Nếu như không có lỗi gì xảy ra thì flag mặc định vẫn là true
         if (flag) {
+            // Xử lý sửa thông tin
+            let id = $scope.editId;
+            if (id) {
+                // Lấy dữ liệu từ input
+                let updatePost = {
+                    title: $scope.inputValue.title,
+                    description: $scope.inputValue.description,
+                    author: $scope.inputValue.author,
+                }
+                // Call api để cập nhật dữ liệu
+                $http.put(
+                    `${apiPosts}/${id}`, // Đường dẫn API
+                    updatePost // Dữ liệu mới nhập từ input
+                ).then(function(response) {
+                    if (response.status == 200) {
+                        $scope.getData();
+                    }
+                });
+                return;
+            }
+
             // Xử lý thêm dữ liệu
             // Lấy dữ liệu nhập vào từ ô input
             let newPost = {
@@ -68,7 +89,6 @@ window.GioiThieuController = function ($scope, $routeParams, $http) {
                 description: $scope.inputValue.description,
                 author: $scope.inputValue.author,
             }
-
             $http.post(
                 apiPosts,   // Đường dẫn link API
                 newPost     // Dữ liệu cần thêm
@@ -78,7 +98,9 @@ window.GioiThieuController = function ($scope, $routeParams, $http) {
         }
     }
 
+    // Nút sửa
     $scope.editPost = function (postId) {
+        $scope.editId = postId;
         
         // Lấy thông tin chi tiết của bài viết
         $http.get(`${apiPosts}/${postId}`)
@@ -93,5 +115,21 @@ window.GioiThieuController = function ($scope, $routeParams, $http) {
                 }
             }
         })
+    }
+
+    // Nút xóa
+    $scope.deletePost = function (deleteID) {
+        let confirm = window.confirm("Bạn có đồng ý xóa hay không?");
+
+        if (confirm) {
+            // Call api xóa dữ liệu
+            $http.delete(
+                `${apiPosts}/${deleteID}` // Đường dẫn API
+            ).then(function (response) {
+                if (response.status == 200) {
+                    $scope.getData();
+                }
+            })
+        }
     }
 }
