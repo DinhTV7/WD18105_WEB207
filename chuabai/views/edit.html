@@ -1,0 +1,25 @@
+<div>
+    <h1>{{ title }}</h1>
+    
+    <table>
+        <tr>
+            <td>Tiêu đề</td>
+            <td>
+                <input type="text" ng-model="inputValue.title"/>
+                <span ng-if="kiemTraDuLieu.title==true" style="color: red;">
+                    Vui lòng nhập họ tiêu đề
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>Tác giả</td>
+            <td>
+                <input type="text" ng-model="inputValue.author"/>
+                <span ng-if="kiemTraDuLieu.author==true" style="color: red;">
+                    Vui lòng nhập tác giả
+                </span>
+            </td>
+        </tr>
+    </table>
+    <button ng-click="onSubmitForm()">Lưu</button>
+</div>

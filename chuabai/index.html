@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học về route</title>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="app-route">
+        <nav>
+            <ul>
+                <li><a href="#!/list">Danh sách</a></li>
+            </ul>
+        </nav>
+        <main>
+            <!-- Định nghĩa khu vực mà view sẽ được render ra-->
+            <div ng-view></div>
+        </main>
+    </div>
+</body>
+<script src="controllers/ListController.js"></script>
+<script src="controllers/AddController.js"></script>
+<script src="controllers/EditController.js"></script>
+<script src="controllers/DeleteController.js"></script>
+<script>
+    var myApp = angular.module('app-route', ['ngRoute']); 
+
+    myApp.config(function ($routeProvider) { 
+        $routeProvider
+        .when('/list', {
+            templateUrl: 'views/list.html',
+            controller: ListController
+        })
+        .when('/add', {
+            templateUrl: 'views/add.html',
+            controller: AddController
+        })
+        .when('/edit/:id', {
+            templateUrl: 'views/edit.html',
+            controller: EditController
+        })
+        .otherwise({ 
+            redirectTo: '/list'
+        });
+    })
+</script>
+
+</html>

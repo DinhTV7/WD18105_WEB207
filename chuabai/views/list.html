@@ -1,0 +1,25 @@
+<div>
+    <h1>{{ title }}</h1>
+    <a href="#!/add">
+        <button>Thêm bài viết</button>
+    </a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Tiêu đề</th>
+            <th>Tác giả</th>
+            <th>Thao tác</th>
+        </tr>
+        <tr ng-repeat="post in listPosts">
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.author }}</td>
+            <td>
+                <a href="#!/edit/{{post.id}}">
+                    <button>Sửa</button>
+                </a>
+                <button ng-click="deletePost(post.id)">Xóa</button>
+            </td>
+        </tr>
+    </table>
+</div>
